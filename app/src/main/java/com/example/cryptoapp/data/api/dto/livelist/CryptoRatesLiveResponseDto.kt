@@ -1,7 +1,10 @@
 package com.example.cryptoapp.data.api.dto.livelist
 
 
-data class CryptoRatesLiveListResponseDto(
+/**
+ * data class denoting DTO of live rates response of coins
+ * */
+data class CryptoRatesLiveResponseDto(
     val privacy: String,
     val rates: Map<String, Double>,
     val success: Boolean,

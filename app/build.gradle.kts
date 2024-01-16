@@ -71,11 +71,13 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
+//    testImplementation("junit:junit:4.13.2")
+//    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
@@ -94,6 +96,19 @@ dependencies {
     implementation ("com.google.code.gson:gson:2.10.1")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     /***********************************************************************/
+
+    /********************* Jetpack Compose ********************************/
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("androidx.compose.material:material")
+    /**********************************************************************/
+
+    /******************** Testing ****************************************/
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("org.mockito:mockito-core:3.4.6")
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1")
+    testImplementation ("app.cash.turbine:turbine:0.11.0")
+    /********************************************************************/
 }
 
 kapt {
