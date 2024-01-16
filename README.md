@@ -1,5 +1,12 @@
 # Crypto Assignment
 
+## Video Preview
+
+
+https://github.com/JatinVashisht1/CryptoAppAssignment/assets/81457315/95c61a34-a570-46b9-a4e5-64d2c4735c3e
+
+
+
 ## Features
 
 - **MVVM Architecture**: The application follows the Model-View-ViewModel architectural pattern, ensuring a separation of concerns and maintainability.
