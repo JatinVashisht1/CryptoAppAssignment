@@ -3,7 +3,9 @@
 ## Video Preview
 
 
-https://github.com/JatinVashisht1/CryptoAppAssignment/assets/81457315/95c61a34-a570-46b9-a4e5-64d2c4735c3e
+
+https://github.com/JatinVashisht1/CryptoAppAssignment/assets/81457315/eaaa4aba-f1dc-44bf-b915-03a44d3b4868
+
 
 
 
