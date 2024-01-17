@@ -12,8 +12,10 @@ import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,12 +36,14 @@ fun HomeScreenParent(
 ) {
     val homeScreenState by homeScreenViewModel.homeScreenState.collectAsState()
     var isRefreshing by remember { mutableStateOf(false) }
+    var lastUpdated by rememberSaveable { mutableLongStateOf(System.currentTimeMillis()) }
 
     val pullRefreshState = rememberPullRefreshState(
         refreshing = isRefreshing,
         onRefresh = {
             isRefreshing = true
             homeScreenViewModel.onRetryTriggered()
+            lastUpdated = System.currentTimeMillis()
             isRefreshing = false
         },
     )
@@ -56,6 +60,8 @@ fun HomeScreenParent(
                         .fillMaxSize()
                         .pullRefresh(pullRefreshState),
                     error = currentScreenState.errorMessage,
+                    shouldShowRetryButton = true,
+                    onRetryButtonClick = homeScreenViewModel::onRetryTriggered,
                 )
 
             }
@@ -70,6 +76,7 @@ fun HomeScreenParent(
                     modifier = Modifier
                         .fillMaxSize()
                         .pullRefresh(pullRefreshState),
+                    lastUpdated = lastUpdated,
                 )
             }
 

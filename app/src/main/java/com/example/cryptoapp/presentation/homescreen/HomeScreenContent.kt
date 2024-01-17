@@ -19,13 +19,15 @@ import com.example.cryptoapp.presentation.utils.MyPaddingValues
 fun HomeScreenContent(
     modifier: Modifier = Modifier,
     homeScreenState: HomeScreenState.Success,
+    lastUpdated: Long,
 ) {
     LazyColumn(modifier = modifier) {
         items(homeScreenState.cryptoCoinDetailsModelList) { cryptoDetailModel ->
             CryptoDetailItem(
                 cryptoCoinDetailsModel = cryptoDetailModel,
                 cryptoCoinLiveState = homeScreenState.cryptoCoinLiveRateState,
-                modifier = Modifier.padding(MyPaddingValues.SMALL,)
+                modifier = Modifier.padding(MyPaddingValues.SMALL,),
+                lastUpdated = lastUpdated,
             )
             Divider()
         }

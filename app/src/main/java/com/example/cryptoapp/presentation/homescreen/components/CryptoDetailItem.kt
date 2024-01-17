@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -20,6 +21,7 @@ import com.example.cryptoapp.domain.model.CryptoCoinDetailsModel
 import com.example.cryptoapp.presentation.components.LoadingComposable
 import com.example.cryptoapp.presentation.homescreen.uistate.CryptoCoinLiveState
 import com.example.cryptoapp.presentation.utils.MyPaddingValues
+import com.example.cryptoapp.presentation.utils.getDateTimeStringFromMillis
 
 /**
  * composable for showing coin detail
@@ -32,6 +34,7 @@ fun CryptoDetailItem(
     modifier: Modifier = Modifier,
     cryptoCoinDetailsModel: CryptoCoinDetailsModel,
     cryptoCoinLiveState: CryptoCoinLiveState,
+    lastUpdated: Long,
 ) {
     Row(modifier = modifier) {
         SubcomposeAsyncImage(
@@ -53,6 +56,8 @@ fun CryptoDetailItem(
             Text(text = cryptoCoinDetailsModel.nameFull)
             Spacer(modifier = Modifier.height(MyPaddingValues.SMALL))
             LiveRateComponent(cryptoCoinLiveState = cryptoCoinLiveState, symbol = cryptoCoinDetailsModel.symbol)
+            Spacer(modifier = Modifier.height(MyPaddingValues.SMALL))
+            Text(text = "last updated: ${getDateTimeStringFromMillis(lastUpdated)}")
         }
     }
 }
